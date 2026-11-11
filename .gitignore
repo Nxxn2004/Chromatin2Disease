@@ -1,0 +1,9 @@
+# python
+__pycache__/
+*.pyc
+.pytest_cache/
+.DS_Store
+# LaTeX build files
+report/*
+# graph cache, rebuilt automatically by chromatin2disease.graphs.load_dataset
+cache/

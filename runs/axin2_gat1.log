@@ -1,0 +1,22 @@
+/Users/worrawat/.miniconda3/envs/chromatin2disease/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+train 3252 | val 697 | test 698 graphs
+epoch   1  loss 0.6838  val AUC 0.5256  axin2_chr17 0.526
+epoch   2  loss 0.6740  val AUC 0.5224  axin2_chr17 0.522
+epoch   3  loss 0.7008  val AUC 0.5284  axin2_chr17 0.528
+epoch   4  loss 0.6507  val AUC 0.5374  axin2_chr17 0.537
+epoch   5  loss 0.7161  val AUC 0.5409  axin2_chr17 0.541
+epoch   6  loss 0.6807  val AUC 0.5291  axin2_chr17 0.529
+epoch   7  loss 0.6667  val AUC 0.5262  axin2_chr17 0.526
+epoch   8  loss 0.6989  val AUC 0.5287  axin2_chr17 0.529
+epoch   9  loss 0.6796  val AUC 0.5304  axin2_chr17 0.530
+epoch  10  loss 0.6902  val AUC 0.5270  axin2_chr17 0.527
+epoch  11  loss 0.6601  val AUC 0.5270  axin2_chr17 0.527
+epoch  12  loss 0.6909  val AUC 0.5228  axin2_chr17 0.523
+epoch  13  loss 0.6532  val AUC 0.5191  axin2_chr17 0.519
+epoch  14  loss 0.6788  val AUC 0.5308  axin2_chr17 0.531
+epoch  15  loss 0.7138  val AUC 0.5219  axin2_chr17 0.522
+epoch  16  loss 0.6905  val AUC 0.5192  axin2_chr17 0.519
+epoch  17  loss 0.6592  val AUC 0.5245  axin2_chr17 0.525
+test ROC-AUC: axin2 0.5251  axin2_chr17 0.5251 
+saved to runs/axin2_gat1

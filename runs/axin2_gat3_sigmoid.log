@@ -1,0 +1,41 @@
+/Users/worrawat/.miniconda3/envs/chromatin2disease/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+train 3252 | val 697 | test 698 graphs
+epoch   1  loss 0.6911  val AUC 0.5212  axin2_chr17 0.521
+epoch   2  loss 0.7087  val AUC 0.5262  axin2_chr17 0.526
+epoch   3  loss 0.6895  val AUC 0.5289  axin2_chr17 0.529
+epoch   4  loss 0.6974  val AUC 0.5272  axin2_chr17 0.527
+epoch   5  loss 0.6701  val AUC 0.5315  axin2_chr17 0.531
+epoch   6  loss 0.7075  val AUC 0.5352  axin2_chr17 0.535
+epoch   7  loss 0.6811  val AUC 0.5313  axin2_chr17 0.531
+epoch   8  loss 0.7134  val AUC 0.5358  axin2_chr17 0.536
+epoch   9  loss 0.6847  val AUC 0.5369  axin2_chr17 0.537
+epoch  10  loss 0.6748  val AUC 0.5383  axin2_chr17 0.538
+epoch  11  loss 0.7058  val AUC 0.5397  axin2_chr17 0.540
+epoch  12  loss 0.6673  val AUC 0.5383  axin2_chr17 0.538
+epoch  13  loss 0.6477  val AUC 0.5417  axin2_chr17 0.542
+epoch  14  loss 0.6406  val AUC 0.5428  axin2_chr17 0.543
+epoch  15  loss 0.6732  val AUC 0.5425  axin2_chr17 0.543
+epoch  16  loss 0.7014  val AUC 0.5428  axin2_chr17 0.543
+epoch  17  loss 0.6838  val AUC 0.5431  axin2_chr17 0.543
+epoch  18  loss 0.6881  val AUC 0.5443  axin2_chr17 0.544
+epoch  19  loss 0.6855  val AUC 0.5411  axin2_chr17 0.541
+epoch  20  loss 0.6735  val AUC 0.5423  axin2_chr17 0.542
+epoch  21  loss 0.6708  val AUC 0.5466  axin2_chr17 0.547
+epoch  22  loss 0.6398  val AUC 0.5456  axin2_chr17 0.546
+epoch  23  loss 0.6849  val AUC 0.5452  axin2_chr17 0.545
+epoch  24  loss 0.6893  val AUC 0.5469  axin2_chr17 0.547
+epoch  25  loss 0.6837  val AUC 0.5423  axin2_chr17 0.542
+epoch  26  loss 0.6725  val AUC 0.5444  axin2_chr17 0.544
+epoch  27  loss 0.6520  val AUC 0.5398  axin2_chr17 0.540
+epoch  28  loss 0.6938  val AUC 0.5436  axin2_chr17 0.544
+epoch  29  loss 0.6525  val AUC 0.5414  axin2_chr17 0.541
+epoch  30  loss 0.6512  val AUC 0.5400  axin2_chr17 0.540
+epoch  31  loss 0.7153  val AUC 0.5383  axin2_chr17 0.538
+epoch  32  loss 0.6657  val AUC 0.5382  axin2_chr17 0.538
+epoch  33  loss 0.6769  val AUC 0.5381  axin2_chr17 0.538
+epoch  34  loss 0.6488  val AUC 0.5379  axin2_chr17 0.538
+epoch  35  loss 0.6721  val AUC 0.5395  axin2_chr17 0.539
+epoch  36  loss 0.6691  val AUC 0.5388  axin2_chr17 0.539
+test ROC-AUC: axin2 0.5234  axin2_chr17 0.5234 
+saved to runs/axin2_gat3_sigmoid

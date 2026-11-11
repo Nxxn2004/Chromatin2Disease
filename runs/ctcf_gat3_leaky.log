@@ -1,0 +1,38 @@
+/Users/worrawat/.miniconda3/envs/chromatin2disease/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+train 20262 | val 4342 | test 4342 graphs
+epoch   1  loss 0.6797  val AUC 0.5848  ctcf_chr3 0.566  ctcf_chr6 0.588
+epoch   2  loss 0.6556  val AUC 0.6010  ctcf_chr3 0.592  ctcf_chr6 0.595
+epoch   3  loss 0.6587  val AUC 0.6202  ctcf_chr3 0.613  ctcf_chr6 0.619
+epoch   4  loss 0.6969  val AUC 0.6382  ctcf_chr3 0.640  ctcf_chr6 0.631
+epoch   5  loss 0.6328  val AUC 0.6420  ctcf_chr3 0.642  ctcf_chr6 0.637
+epoch   6  loss 0.6999  val AUC 0.6519  ctcf_chr3 0.652  ctcf_chr6 0.643
+epoch   7  loss 0.7059  val AUC 0.6578  ctcf_chr3 0.665  ctcf_chr6 0.650
+epoch   8  loss 0.5665  val AUC 0.6573  ctcf_chr3 0.662  ctcf_chr6 0.650
+epoch   9  loss 0.6943  val AUC 0.6687  ctcf_chr3 0.675  ctcf_chr6 0.661
+epoch  10  loss 0.6316  val AUC 0.6746  ctcf_chr3 0.673  ctcf_chr6 0.671
+epoch  11  loss 0.7475  val AUC 0.6773  ctcf_chr3 0.687  ctcf_chr6 0.669
+epoch  12  loss 0.7022  val AUC 0.6827  ctcf_chr3 0.697  ctcf_chr6 0.666
+epoch  13  loss 0.5947  val AUC 0.6888  ctcf_chr3 0.698  ctcf_chr6 0.675
+epoch  14  loss 0.6891  val AUC 0.6813  ctcf_chr3 0.695  ctcf_chr6 0.666
+epoch  15  loss 0.5397  val AUC 0.6830  ctcf_chr3 0.689  ctcf_chr6 0.674
+epoch  16  loss 0.6458  val AUC 0.6834  ctcf_chr3 0.700  ctcf_chr6 0.665
+epoch  17  loss 0.7017  val AUC 0.6891  ctcf_chr3 0.703  ctcf_chr6 0.673
+epoch  18  loss 0.5378  val AUC 0.6851  ctcf_chr3 0.694  ctcf_chr6 0.677
+epoch  19  loss 0.5183  val AUC 0.6865  ctcf_chr3 0.697  ctcf_chr6 0.675
+epoch  20  loss 0.6710  val AUC 0.6853  ctcf_chr3 0.697  ctcf_chr6 0.673
+epoch  21  loss 0.6691  val AUC 0.6899  ctcf_chr3 0.708  ctcf_chr6 0.670
+epoch  22  loss 0.6387  val AUC 0.6883  ctcf_chr3 0.695  ctcf_chr6 0.677
+epoch  23  loss 0.5804  val AUC 0.6887  ctcf_chr3 0.699  ctcf_chr6 0.674
+epoch  24  loss 0.5063  val AUC 0.6881  ctcf_chr3 0.701  ctcf_chr6 0.673
+epoch  25  loss 0.4698  val AUC 0.6873  ctcf_chr3 0.699  ctcf_chr6 0.673
+epoch  26  loss 0.6898  val AUC 0.6845  ctcf_chr3 0.699  ctcf_chr6 0.667
+epoch  27  loss 0.5448  val AUC 0.6820  ctcf_chr3 0.698  ctcf_chr6 0.665
+epoch  28  loss 0.5850  val AUC 0.6854  ctcf_chr3 0.702  ctcf_chr6 0.668
+epoch  29  loss 0.6097  val AUC 0.6832  ctcf_chr3 0.700  ctcf_chr6 0.669
+epoch  30  loss 0.5742  val AUC 0.6797  ctcf_chr3 0.688  ctcf_chr6 0.669
+epoch  31  loss 0.6016  val AUC 0.6810  ctcf_chr3 0.690  ctcf_chr6 0.668
+epoch  32  loss 0.5184  val AUC 0.6786  ctcf_chr3 0.694  ctcf_chr6 0.664
+epoch  33  loss 0.6461  val AUC 0.6805  ctcf_chr3 0.697  ctcf_chr6 0.664
+test ROC-AUC: ctcf 0.6728  ctcf_chr3 0.6838  ctcf_chr6 0.6567 
+saved to runs/ctcf_gat3_leaky

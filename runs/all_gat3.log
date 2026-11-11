@@ -1,0 +1,44 @@
+/Users/worrawat/.miniconda3/envs/chromatin2disease/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+train 23515 | val 5039 | test 5039 graphs
+epoch   1  loss 0.6652  val AUC 0.5767  axin2_chr17 0.561  ctcf_chr3 0.612  ctcf_chr6 0.577
+epoch   2  loss 0.6821  val AUC 0.5898  axin2_chr17 0.569  ctcf_chr3 0.609  ctcf_chr6 0.619
+epoch   3  loss 0.6981  val AUC 0.6033  axin2_chr17 0.568  ctcf_chr3 0.641  ctcf_chr6 0.627
+epoch   4  loss 0.6189  val AUC 0.6013  axin2_chr17 0.562  ctcf_chr3 0.652  ctcf_chr6 0.629
+epoch   5  loss 0.7208  val AUC 0.6112  axin2_chr17 0.571  ctcf_chr3 0.658  ctcf_chr6 0.639
+epoch   6  loss 0.6174  val AUC 0.6096  axin2_chr17 0.568  ctcf_chr3 0.656  ctcf_chr6 0.643
+epoch   7  loss 0.5928  val AUC 0.6112  axin2_chr17 0.572  ctcf_chr3 0.650  ctcf_chr6 0.647
+epoch   8  loss 0.6479  val AUC 0.6132  axin2_chr17 0.576  ctcf_chr3 0.665  ctcf_chr6 0.638
+epoch   9  loss 0.5421  val AUC 0.6103  axin2_chr17 0.583  ctcf_chr3 0.658  ctcf_chr6 0.652
+epoch  10  loss 0.6326  val AUC 0.6203  axin2_chr17 0.587  ctcf_chr3 0.662  ctcf_chr6 0.645
+epoch  11  loss 0.5835  val AUC 0.6191  axin2_chr17 0.584  ctcf_chr3 0.659  ctcf_chr6 0.647
+epoch  12  loss 0.6102  val AUC 0.6153  axin2_chr17 0.569  ctcf_chr3 0.668  ctcf_chr6 0.650
+epoch  13  loss 0.5343  val AUC 0.6133  axin2_chr17 0.572  ctcf_chr3 0.667  ctcf_chr6 0.639
+epoch  14  loss 0.5500  val AUC 0.6174  axin2_chr17 0.581  ctcf_chr3 0.658  ctcf_chr6 0.643
+epoch  15  loss 0.5034  val AUC 0.6232  axin2_chr17 0.583  ctcf_chr3 0.671  ctcf_chr6 0.652
+epoch  16  loss 0.6176  val AUC 0.6214  axin2_chr17 0.580  ctcf_chr3 0.667  ctcf_chr6 0.655
+epoch  17  loss 0.6812  val AUC 0.6179  axin2_chr17 0.569  ctcf_chr3 0.670  ctcf_chr6 0.658
+epoch  18  loss 0.6297  val AUC 0.6202  axin2_chr17 0.576  ctcf_chr3 0.671  ctcf_chr6 0.659
+epoch  19  loss 0.6537  val AUC 0.6163  axin2_chr17 0.572  ctcf_chr3 0.672  ctcf_chr6 0.647
+epoch  20  loss 0.6418  val AUC 0.6067  axin2_chr17 0.553  ctcf_chr3 0.671  ctcf_chr6 0.648
+epoch  21  loss 0.4960  val AUC 0.6143  axin2_chr17 0.562  ctcf_chr3 0.673  ctcf_chr6 0.656
+epoch  22  loss 0.5903  val AUC 0.6212  axin2_chr17 0.580  ctcf_chr3 0.669  ctcf_chr6 0.649
+epoch  23  loss 0.5634  val AUC 0.6210  axin2_chr17 0.582  ctcf_chr3 0.668  ctcf_chr6 0.655
+epoch  24  loss 0.6674  val AUC 0.6180  axin2_chr17 0.576  ctcf_chr3 0.671  ctcf_chr6 0.648
+epoch  25  loss 0.5083  val AUC 0.6130  axin2_chr17 0.568  ctcf_chr3 0.670  ctcf_chr6 0.649
+epoch  26  loss 0.7456  val AUC 0.6186  axin2_chr17 0.576  ctcf_chr3 0.672  ctcf_chr6 0.653
+epoch  27  loss 0.5809  val AUC 0.6244  axin2_chr17 0.587  ctcf_chr3 0.671  ctcf_chr6 0.651
+epoch  28  loss 0.6136  val AUC 0.6102  axin2_chr17 0.557  ctcf_chr3 0.673  ctcf_chr6 0.650
+epoch  29  loss 0.6594  val AUC 0.6069  axin2_chr17 0.547  ctcf_chr3 0.673  ctcf_chr6 0.660
+epoch  30  loss 0.6713  val AUC 0.6098  axin2_chr17 0.555  ctcf_chr3 0.674  ctcf_chr6 0.653
+epoch  31  loss 0.5359  val AUC 0.6110  axin2_chr17 0.560  ctcf_chr3 0.669  ctcf_chr6 0.652
+epoch  32  loss 0.5096  val AUC 0.6094  axin2_chr17 0.553  ctcf_chr3 0.675  ctcf_chr6 0.652
+epoch  33  loss 0.6049  val AUC 0.6090  axin2_chr17 0.556  ctcf_chr3 0.675  ctcf_chr6 0.647
+epoch  34  loss 0.5634  val AUC 0.6165  axin2_chr17 0.568  ctcf_chr3 0.678  ctcf_chr6 0.649
+epoch  35  loss 0.6053  val AUC 0.6123  axin2_chr17 0.554  ctcf_chr3 0.685  ctcf_chr6 0.654
+epoch  36  loss 0.5393  val AUC 0.6088  axin2_chr17 0.555  ctcf_chr3 0.676  ctcf_chr6 0.647
+epoch  37  loss 0.6814  val AUC 0.6092  axin2_chr17 0.552  ctcf_chr3 0.683  ctcf_chr6 0.648
+epoch  38  loss 0.4616  val AUC 0.6117  axin2_chr17 0.555  ctcf_chr3 0.681  ctcf_chr6 0.656
+epoch  39  loss 0.5965  val AUC 0.6116  axin2_chr17 0.561  ctcf_chr3 0.674  ctcf_chr6 0.652
+test ROC-AUC: axin2 0.5434  ctcf 0.6903  axin2_chr17 0.5434  ctcf_chr3 0.7049  ctcf_chr6 0.6743 
+saved to runs/all_gat3

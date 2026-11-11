@@ -1,0 +1,17 @@
+{
+  "dataset": "axin2",
+  "split": "random",
+  "test_replicate": "rep2",
+  "contact_scale": 1.0,
+  "layers": 3,
+  "hidden": 64,
+  "act": "elu",
+  "attn_leaky": false,
+  "dropout": 0.2,
+  "epochs": 60,
+  "patience": 12,
+  "batch_size": 64,
+  "lr": 0.001,
+  "seed": 0,
+  "out": "runs/axin2_gat3_noattnleaky"
+}

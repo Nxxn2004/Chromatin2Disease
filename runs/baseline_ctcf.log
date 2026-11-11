@@ -1,0 +1,5 @@
+/Users/worrawat/.miniconda3/envs/chromatin2disease/lib/python3.11/site-packages/torch/jit/_script.py:1491: FutureWarning: `torch.jit.script` is deprecated. Please switch to `torch.compile` or `torch.export`.
+  warnings.warn(
+ctcf_chr3 ROC-AUC train 0.9676  val 0.6171  test 0.6197
+ctcf_chr6 ROC-AUC train 0.8334  val 0.5965  test 0.5756
+saved to runs/baseline_ctcf
