@@ -1,9 +1,34 @@
 # Chromatin2Disease
-Predicting cell states via GNN-based classifier on chromatin-tracing data (Stanford CS224W).
+Predicting cell states via GNN-based classifier on chromatin-tracing data. This project is initially built as a class project for Stanford CS224W (Fall 2026).
+
+## Background
+
+Inside the nucleus, DNA and its packaging histone proteins form chromatin, which folds into loops
+and domains that help decide which genes are switched on. Chromatin tracing images this folding directly in single
+cells. Methods such as [ORCA](https://doi.org/10.1038/s41586-019-1035-4) (optical reconstruction of chromatin architecture) label a run of consecutive genomic
+segments, here 8 kb or 30 kb each, image them one after another, and record the 3D position of every segment
+on every chromosome. Each traced chromosome is therefore a chain of 3D points, which differs strongly from cell to
+cell and maps naturally onto a graph.
+
+The datasets used in this project come from the [4D Nucleome Data Portal](https://doi.org/10.1038/s41467-022-29697-4). The [4D Nucleome Program](https://commonfund.nih.gov/4DNucleome) studies cellular nucleus organization in 3D space and its temporal changes, hence the fourth dimension. The data portal hosts Hi-C, imaging and chromatin tracing data in standardized formats. Tracing data use the FISH-Omics Format for Chromatin Tracing (FOF-CT), whose core table lists one imaged spot information including its trace, 3D coordinates and genomic interval in each row.
+
+This project will classify FOF-CT chromatin traces from two genomic perturbations:
+
+- **AXIN2**, which lies on human chromosome 17, is a negative regulator of Wnt/β-catenin signalling and thus acts as a tumor suppressor. Llimos et al. (2022) studied a
+common germline 5-bp insertion/deletion near AXIN2 that is associated with a lower risk of chronic lymphocytic
+leukemia (CLL), a form of blood cancer, which we will term the `leuk-protect` variant. The variant creates a binding site for the transcription factor MEF2, triggers a cluster of
+enhancers spanning more than 150 kb, mildly compacts the gene locus in 3D and raises AXIN2 expression. Chromatin traces of AXIN2 locus in lymphoblastoid cell lines, with and without the variant, are used in our `axin2` task.
+
+- **CTCF** is a DNA-binding protein that marks the boundaries of chromatin domains. It stops another ring-shaped protein complex called cohesin from extruding chromatin loops further, and such loops are anchored at CTCF sites. Hafner et al. (2023) tagged CTCF with
+an auxin-inducible degron (AID) in mouse embryonic stem cells, so that adding auxin removes CTCF proteins within
+hours. Chromatin traces around the *Sox2* (chromosome 3) and *Hoxa* (chromosome 6) domains in untreated and auxin-treated cells reveal that CTCF promotes chromatin loop stacking at the domain boundary. These tracing data are used in our `ctcf` task.
+
+Our project asks whether we can classify theses cell variants based only on given chromatin tracing data.
+
+## Overview
 
 Each traced chromosome is turned into a graph, with imaged DNA segments as nodes and the
-chromatin backbone plus 3D contacts as edges. A Graph Attention Network built with
-PyTorch Geometric then classifies the trace. Two tasks are supported, separately or jointly:
+chromatin backbone plus 3D contacts as edges. A model based on Graph Attention Network then classifies the trace. Two tasks are supported, separately or jointly:
 
 | task | data | label 1 | label 0 | locus |
 |---|---|---|---|---|
@@ -20,7 +45,7 @@ conda activate chromatin2disease
 ## Data
 
 ```
-data/                                                        fetched by scripts/download_data.sh
+data/                                                        # fetched by scripts/download_data.sh
   axin2-data/<region>/<condition>/<experiment>/<file>.csv
   ctcf-data/<region>/<condition>/<experiment>/<file>.csv
 metadata/
@@ -42,37 +67,36 @@ bash scripts/download_data.sh axin2      # ~7 MB into data/axin2-data/
 bash scripts/download_data.sh ctcf       # ~140 MB into data/ctcf-data/
 ```
 
-**AXIN2 (Llimos 2022)** has 12 files: 2 conditions × 2 biological replicates × 3 FOF-CT tables
-(core, spot quality, trace data). The experiment codes and replicate numbers come from Wayback Machine
-snapshots of the 4DN set pages
-[4DNESYNKYXQN](http://web.archive.org/web/20260616095224/https://data.4dnucleome.org/experiment-set-replicates/4DNESYNKYXQN/)
-and [4DNESFAJCG4W](http://web.archive.org/web/20260510194938/https://data.4dnucleome.org/experiment-set-replicates/4DNESFAJCG4W/).
-The first set is the homozygous rs143348853 indel, labelled `leuk-protect`. The second is the
-homozygous reference, labelled `non-protect`. The md5 sums of the files fetched from S3 match that metadata.
+**AXIN2 (Llimos et al., 2022)** has 4 core table files:
 
-| condition | label | replicate | experiment | core table |
-|---|---|---|---|---|
-| leuk-protect | 1 | rep1 | 4DNEXU2FYC2S | 4DNFIG51R1QG |
-| leuk-protect | 1 | rep2 | 4DNEX4L5AR91 | 4DNFIIHHT16W |
-| non-protect | 0 | rep1 | 4DNEX1MX8Y7L | 4DNFIZ37CGLR |
-| non-protect | 0 | rep2 | 4DNEX5ICQCRY | 4DNFIXSTIVTW |
+| condition | chromosome | label | replicate | experiment | core table |
+|---|---|---|---|---|---|
+| leuk-protect | chr17 | 1 | rep1 | 4DNEXU2FYC2S | 4DNFIG51R1QG |
+| leuk-protect | chr17 | 1 | rep2 | 4DNEX4L5AR91 | 4DNFIIHHT16W |
+| non-protect | chr17 | 0 | rep1 | 4DNEX1MX8Y7L | 4DNFIZ37CGLR |
+| non-protect | chr17 | 0 | rep2 | 4DNEX5ICQCRY | 4DNFIXSTIVTW |
 
-**CTCF (Hafner 2023)** has 12 core tables: 2 loci × {untreated, auxin} × 3 replicates.
-How the files were identified:
+**CTCF (Hafner et al., 2023)** has 12 core table files:
 
-* The bucket listing in `4dn_listing.txt` has no condition labels. Hafner's core tables were found by
-  reading the first few KB of every CSV in it.
-* File-to-condition labels come from the 4DN metadata catalogue in
-  [U-Chrom `fourdn_tracing.tsv`](https://github.com/u-science-lab/U-Chrom/pull/156). That catalogue was
-  checked against the 4DN metadata archived by the Wayback Machine for experiment set `4DNESLRTOSQT`,
-  and all 10 of its files matched. Its byte counts also match the S3 listing, and the md5 sums are verified on download.
-* The 4DN sets are `4DNESTNG39BO` (chr3 untreated), `4DNESG62SAVA` (chr3 auxin),
-  `4DNESJ3TXVIR` (chr6 untreated) and `4DNES2KX6HQ5` (chr6 auxin).
-* The `replicate` column pairs each auxin experiment with the untreated experiment from the same
-  multiplexed imaging run. This pairing is inferred, because the two files share one spot-ID space and an
-  identical segment grid. It is used only for the held-out-replicate split.
+| condition | chromosome | label | replicate | experiment | core table |
+|---|---|---|---|---|---|
+| auxin | chr3 | 1 | rep1 | 4DNEX5L4MPMG | 4DNFILD6TDR6 |
+| auxin | chr3 | 1 | rep2 | 4DNEXOLS8BYS | 4DNFIKXR227H |
+| auxin | chr3 | 1 | rep3 | 4DNEXJ215XWF | 4DNFIW3V9CRO |
+| untreated | chr3 | 0 | rep1 | 4DNEXZU2N5SB | 4DNFI2OG3IPB |
+| untreated | chr3 | 0 | rep2 | 4DNEX84R1VFO | 4DNFIU5X9MXT |
+| untreated | chr3 | 0 | rep3 | 4DNEXRMBZE8V | 4DNFIIQ8YIG4 |
+| auxin | chr6 | 1 | rep1 | 4DNEXZFUSZYX | 4DNFIIOVHG1I |
+| auxin | chr6 | 1 | rep2 | 4DNEXGPCGGM9 | 4DNFIJYFR8FT |
+| auxin | chr6 | 1 | rep3 | 4DNEXERBJAP8 | 4DNFI4VLY3WU |
+| untreated | chr6 | 0 | rep1 | 4DNEX69R54RT | 4DNFIKVZTN9K |
+| untreated | chr6 | 0 | rep2 | 4DNEXTZDK167 | 4DNFIZWUQTXF |
+| untreated | chr6 | 0 | rep3 | 4DNEXMW5AM74 | 4DNFID7HZ8LX |
 
-Coordinates in both datasets are in nanometres, although the headers say `XYZ_unit=micron`.
+The CTCF replicate numbers are inferred, not official 4DN metadata. Each auxin file is paired with the untreated
+file from the same multiplexed imaging run.
+
+Coordinates in both datasets are inferred to be in nanometres.
 
 ## Graph construction (`chromatin2disease/graphs.py`)
 
@@ -91,7 +115,7 @@ Coordinates in both datasets are in nanometres, although the headers say `XYZ_un
 
 ## Model (`chromatin2disease/model.py`)
 
-This follows the proposal's Section 2:
+
 
 ```
 h_v^(k) = σ( MSG_self(h_v^(k-1)) + Σ_{u∈N(v)} α_vu MSG(h_u^(k-1)) ),   α from single-head GATConv
@@ -248,11 +272,3 @@ How to read these numbers:
 Attention maps for the 1-layer CTCF model are produced with `python -m chromatin2disease.interpret runs/ctcf_gat1`.
 Readout attention concentrates on a few segments, for example chr6 around 51.4 Mb and 52.7 Mb, and is similar in both
 classes. The classes differ mainly in what the model learns at those segments, not in where it looks.
-
-## Notes and limitations
-
-* Classification is per traced chromosome. In most replicates the files do not group traces by cell,
-  and only one replicate per locus has a `Cell_ID` column.
-* The proposal's chromatin-state feature is not part of the FOF-CT files and is not used.
-* Locus-level statistics, such as the contact threshold and coordinate scale, are computed from all traces
-  without labels before splitting.
